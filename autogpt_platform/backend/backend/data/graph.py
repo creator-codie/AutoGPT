@@ -210,7 +210,8 @@ class Graph(GraphMeta):
                 raise ValueError(f"Invalid block {node.block_id} for node #{node.id}")
 
             if not for_run:
-                continue  # Skip input completion validation, unless when executing.
+                # Skip input completion validation, unless when executing.
+                continue
 
             provided_inputs = set(
                 [sanitize(name) for name in node.input_default]
@@ -278,7 +279,8 @@ class Graph(GraphMeta):
                 raise ValueError(f"{suffix}, Connecting nodes from different subgraph.")
 
             if is_static_output_block(link.source_id):
-                link.is_static = True  # Each value block output should be static.
+                # Each value block output should be static.
+                link.is_static = True
 
             # TODO: Add type compatibility check here.
 
@@ -385,8 +387,6 @@ AGENT_GRAPH_INCLUDE: prisma.types.AgentGraphInclude = {
 
 
 # --------------------- Model functions --------------------- #
-
-
 async def get_node(node_id: str) -> Node:
     node = await AgentNode.prisma().find_unique_or_raise(
         where={"id": node_id},

@@ -55,7 +55,6 @@ readinessProbe: null
 domain: "dev-builder.agpt.co"
 wwwDomain: "www.dev-builder.agpt.co"
 
-
 env:
   APP_ENV: "dev"
 

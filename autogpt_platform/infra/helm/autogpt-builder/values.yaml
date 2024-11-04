@@ -39,7 +39,6 @@ ingress:
           pathType: ImplementationSpecific
   tls: []
 
-
 resources:
   requests:
     cpu: 100m

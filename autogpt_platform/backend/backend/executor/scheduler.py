@@ -4,8 +4,8 @@ from datetime import datetime
 
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
-from autogpt_libs.utils.cache import thread_cached
 
+from autogpt_libs.utils.cache import thread_cached
 from backend.data.block import BlockInput
 from backend.data.schedule import (
     ExecutionSchedule,
@@ -26,7 +26,6 @@ def log(msg, **kwargs):
 
 
 class ExecutionScheduler(AppService):
-
     def __init__(self, refresh_interval=10):
         super().__init__()
         self.use_db = True

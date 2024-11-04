@@ -17,7 +17,6 @@ if TYPE_CHECKING:
     from backend.executor import DatabaseManager
 
 from autogpt_libs.utils.cache import thread_cached
-
 from backend.data import redis
 from backend.data.block import Block, BlockData, BlockInput, BlockType, get_block
 from backend.data.execution import (
@@ -239,7 +238,6 @@ def _enqueue_next_nodes(
     graph_id: str,
     log_metadata: LogMetadata,
 ) -> list[NodeExecution]:
-
     def add_enqueued_execution(
         node_exec_id: str, node_id: str, data: BlockInput
     ) -> NodeExecution:
@@ -672,7 +670,6 @@ class Executor:
 
 
 class ExecutionManager(AppService):
-
     def __init__(self):
         super().__init__()
         self.use_redis = True

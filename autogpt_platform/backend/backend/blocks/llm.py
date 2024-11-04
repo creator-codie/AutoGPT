@@ -5,8 +5,9 @@ from json import JSONDecodeError
 from types import MappingProxyType
 from typing import TYPE_CHECKING, Any, List, Literal, NamedTuple
 
-from autogpt_libs.supabase_integration_credentials_store.types import APIKeyCredentials
 from pydantic import SecretStr
+
+from autogpt_libs.supabase_integration_credentials_store.types import APIKeyCredentials
 
 if TYPE_CHECKING:
     from enum import _EnumMemberT
@@ -422,16 +423,19 @@ class AIStructuredResponseGeneratorBlock(Block):
                 if input_data.expected_format:
                     parsed_dict, parsed_error = parse_response(response_text)
                     if not parsed_error:
-                        yield "response", {
-                            k: (
-                                json.loads(v)
-                                if isinstance(v, str)
-                                and v.startswith("[")
-                                and v.endswith("]")
-                                else (", ".join(v) if isinstance(v, list) else v)
-                            )
-                            for k, v in parsed_dict.items()
-                        }
+                        yield (
+                            "response",
+                            {
+                                k: (
+                                    json.loads(v)
+                                    if isinstance(v, str)
+                                    and v.startswith("[")
+                                    and v.endswith("]")
+                                    else (", ".join(v) if isinstance(v, list) else v)
+                                )
+                                for k, v in parsed_dict.items()
+                            },
+                        )
                         return
                 else:
                     yield "response", {"response": response_text}

@@ -15,10 +15,10 @@ from typing import (
 
 import jsonref
 import jsonschema
-from autogpt_libs.supabase_integration_credentials_store.types import Credentials
 from prisma.models import AgentBlock
 from pydantic import BaseModel
 
+from autogpt_libs.supabase_integration_credentials_store.types import Credentials
 from backend.util import json
 
 from .model import CREDENTIALS_FIELD_NAME, ContributorDetails, CredentialsMetaInput

@@ -178,7 +178,6 @@ class AppService(AppProcess, ABC):
 
 # --------- UTILITIES --------- #
 
-
 AS = TypeVar("AS", bound=AppService)
 
 

@@ -4,6 +4,11 @@ from enum import Enum
 from typing import Any, Optional, Type
 
 import prisma.errors
+from prisma import Json
+from prisma.enums import UserBlockCreditType
+from prisma.models import UserBlockCredit
+from pydantic import BaseModel
+
 from autogpt_libs.supabase_integration_credentials_store.store import (
     anthropic_credentials,
     did_credentials,
@@ -13,11 +18,6 @@ from autogpt_libs.supabase_integration_credentials_store.store import (
     replicate_credentials,
     revid_credentials,
 )
-from prisma import Json
-from prisma.enums import UserBlockCreditType
-from prisma.models import UserBlockCredit
-from pydantic import BaseModel
-
 from backend.blocks.ai_shortform_video_block import AIShortformVideoCreatorBlock
 from backend.blocks.ideogram import IdeogramModelBlock
 from backend.blocks.llm import (

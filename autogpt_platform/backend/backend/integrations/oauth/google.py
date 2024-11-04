@@ -1,6 +1,5 @@
 import logging
 
-from autogpt_libs.supabase_integration_credentials_store import OAuth2Credentials
 from google.auth.external_account_authorized_user import (
     Credentials as ExternalAccountCredentials,
 )
@@ -8,6 +7,8 @@ from google.auth.transport.requests import AuthorizedSession, Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import Flow
 from pydantic import SecretStr
+
+from autogpt_libs.supabase_integration_credentials_store import OAuth2Credentials
 
 from .base import BaseOAuthHandler
 
@@ -27,6 +28,7 @@ class GoogleOAuthHandler(BaseOAuthHandler):
         "https://www.googleapis.com/auth/userinfo.profile",
         "openid",
     ]
+
     # --8<-- [end:GoogleOAuthHandlerExample]
 
     def __init__(self, client_id: str, client_secret: str, redirect_uri: str):

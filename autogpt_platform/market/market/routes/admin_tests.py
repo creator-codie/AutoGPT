@@ -1,12 +1,12 @@
 import datetime
 from unittest import mock
 
-import autogpt_libs.auth.middleware
 import fastapi
 import fastapi.testclient
 import prisma.enums
 import prisma.models
 
+import autogpt_libs.auth.middleware
 import market.app
 
 client = fastapi.testclient.TestClient(market.app.app)

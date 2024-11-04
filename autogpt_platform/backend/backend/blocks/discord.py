@@ -3,9 +3,9 @@ from typing import Literal
 
 import aiohttp
 import discord
-from autogpt_libs.supabase_integration_credentials_store.types import APIKeyCredentials
 from pydantic import SecretStr
 
+from autogpt_libs.supabase_integration_credentials_store.types import APIKeyCredentials
 from backend.data.block import Block, BlockCategory, BlockOutput, BlockSchema
 from backend.data.model import CredentialsField, CredentialsMetaInput, SchemaField
 

@@ -87,9 +87,12 @@ class SendEmailBlock(Block):
         return "Email sent successfully"
 
     def run(self, input_data: Input, **kwargs) -> BlockOutput:
-        yield "status", self.send_email(
-            input_data.creds,
-            input_data.to_email,
-            input_data.subject,
-            input_data.body,
+        yield (
+            "status",
+            self.send_email(
+                input_data.creds,
+                input_data.to_email,
+                input_data.subject,
+                input_data.body,
+            ),
         )

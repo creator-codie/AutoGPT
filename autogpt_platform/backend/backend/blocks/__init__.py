@@ -27,7 +27,6 @@ for module in modules:
 # Load all Block instances from the available modules
 AVAILABLE_BLOCKS: dict[str, Type[Block]] = {}
 
-
 T = TypeVar("T")
 
 

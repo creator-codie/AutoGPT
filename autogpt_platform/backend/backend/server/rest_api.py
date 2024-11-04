@@ -7,13 +7,13 @@ from functools import wraps
 from typing import Annotated, Any, Dict
 
 import uvicorn
-from autogpt_libs.auth.middleware import auth_middleware
-from autogpt_libs.utils.cache import thread_cached
 from fastapi import APIRouter, Body, Depends, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from typing_extensions import TypedDict
 
+from autogpt_libs.auth.middleware import auth_middleware
+from autogpt_libs.utils.cache import thread_cached
 from backend.data import block, db
 from backend.data import execution as execution_db
 from backend.data import graph as graph_db
@@ -298,9 +298,14 @@ class AgentServer(AppService):
                 if param.annotation is inspect.Parameter.empty:
                     continue
                 if isinstance(param.annotation, Depends) or (  # type: ignore
-                    isinstance(param.annotation, type) and issubclass(param.annotation, Depends)  # type: ignore
+                    isinstance(param.annotation, type)
+                    and issubclass(param.annotation, Depends)  # type: ignore
                 ):
-                    dependency = param.annotation.dependency if isinstance(param.annotation, Depends) else param.annotation  # type: ignore
+                    dependency = (
+                        param.annotation.dependency
+                        if isinstance(param.annotation, Depends)
+                        else param.annotation
+                    )  # type: ignore
                     if dependency in self._test_dependency_overrides:
                         kwargs[param_name] = self._test_dependency_overrides[
                             dependency

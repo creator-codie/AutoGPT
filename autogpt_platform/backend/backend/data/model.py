@@ -3,7 +3,6 @@ from __future__ import annotations
 import logging
 from typing import Any, Callable, ClassVar, Generic, Optional, TypeVar
 
-from autogpt_libs.supabase_integration_credentials_store.types import CredentialsType
 from pydantic import BaseModel, Field, GetCoreSchemaHandler
 from pydantic_core import (
     CoreSchema,
@@ -12,6 +11,7 @@ from pydantic_core import (
     core_schema,
 )
 
+from autogpt_libs.supabase_integration_credentials_store.types import CredentialsType
 from backend.util.settings import Secrets
 
 T = TypeVar("T")
@@ -139,7 +139,6 @@ def SchemaField(
 
 CP = TypeVar("CP", bound=str)
 CT = TypeVar("CT", bound=CredentialsType)
-
 
 CREDENTIALS_FIELD_NAME = "credentials"
 
