@@ -589,7 +589,7 @@ export default function useAgentGraph(
   );
 
   const saveAgent = useCallback(
-    async (asTemplate: boolean = false) => {
+    async (asTemplate = false) => {
       //FIXME frontend ids should be resolved better (e.g. returned from the server)
       // currently this relays on block_id and position
       const blockIdToNodeIdMap: Record<string, string> = {};

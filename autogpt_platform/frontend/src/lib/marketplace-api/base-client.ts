@@ -46,8 +46,8 @@ export default class BaseMarketplaceAPI {
   }
 
   async getTopDownloadedAgents(
-    page: number = 1,
-    pageSize: number = 10,
+    page = 1,
+    pageSize = 10,
   ): Promise<ListResponse<Agent>> {
     return this._get(
       `/top-downloads/agents?page=${page}&page_size=${pageSize}`,
@@ -55,19 +55,19 @@ export default class BaseMarketplaceAPI {
   }
 
   async getFeaturedAgents(
-    page: number = 1,
-    pageSize: number = 10,
+    page = 1,
+    pageSize = 10,
   ): Promise<ListResponse<Agent>> {
     return this._get(`/featured/agents?page=${page}&page_size=${pageSize}`);
   }
 
   async searchAgents(
     query: string,
-    page: number = 1,
-    pageSize: number = 10,
+    page = 1,
+    pageSize = 10,
     categories?: string[],
-    descriptionThreshold: number = 60,
-    sortBy: string = "rank",
+    descriptionThreshold = 60,
+    sortBy = "rank",
     sortOrder: "asc" | "desc" = "desc",
   ): Promise<ListResponse<AgentWithRank>> {
     const queryParams = new URLSearchParams({
@@ -139,7 +139,7 @@ export default class BaseMarketplaceAPI {
   async approveAgentSubmission(
     agentId: string,
     version: number,
-    comments: string = "",
+    comments = "",
   ): Promise<AgentResponse> {
     return this._post("/admin/agent/submissions", {
       agent_id: agentId,
@@ -152,7 +152,7 @@ export default class BaseMarketplaceAPI {
   async rejectAgentSubmission(
     agentId: string,
     version: number,
-    comments: string = "",
+    comments = "",
   ): Promise<AgentResponse> {
     return this._post("/admin/agent/submissions", {
       agent_id: agentId,
@@ -186,8 +186,8 @@ export default class BaseMarketplaceAPI {
   }
 
   async getNotFeaturedAgents(
-    page: number = 1,
-    pageSize: number = 10,
+    page = 1,
+    pageSize = 10,
   ): Promise<ListResponse<AgentResponse>> {
     return this._get(
       `/admin/agent/not-featured?page=${page}&page_size=${pageSize}`,
