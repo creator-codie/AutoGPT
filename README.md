@@ -5,6 +5,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **AutoGPT** is a powerful platform that allows you to create, deploy, and manage continuous AI agents that automate complex workflows. 
+[![DeepSource](https://app.deepsource.com/gh/creator-codie/AutoGPT:autogpt_platform.svg/?label=active+issues&show_trend=true&token=LQmXJHpWunQlC67kfMdXb-jr)](https://app.deepsource.com/gh/creator-codie/AutoGPT:autogpt_platform/)
+
+[![DeepSource](https://app.deepsource.com/gh/creator-codie/AutoGPT:autogpt_platform.svg/?label=resolved+issues&show_trend=true&token=LQmXJHpWunQlC67kfMdXb-jr)](https://app.deepsource.com/gh/creator-codie/AutoGPT:autogpt_platform/)
 
 ## Hosting Options 
    - Download to self-host
