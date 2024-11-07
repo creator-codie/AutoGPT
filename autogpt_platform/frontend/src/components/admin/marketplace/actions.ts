@@ -49,10 +49,7 @@ export async function getReviewableAgents() {
   );
 }
 
-export async function getFeaturedAgents(
-  page = 1,
-  pageSize = 10,
-) {
+export async function getFeaturedAgents(page = 1, pageSize = 10) {
   return await Sentry.withServerActionInstrumentation(
     "getFeaturedAgents",
     {},
@@ -125,10 +122,7 @@ export async function getCategories() {
   );
 }
 
-export async function getNotFeaturedAgents(
-  page = 1,
-  pageSize = 100,
-) {
+export async function getNotFeaturedAgents(page = 1, pageSize = 100) {
   return await Sentry.withServerActionInstrumentation(
     "getNotFeaturedAgents",
     {},
