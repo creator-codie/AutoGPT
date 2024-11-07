@@ -198,7 +198,8 @@ class GmailReadBlock(Block):
 
         return email_data
 
-    def _get_email_body(self, msg):
+    @staticmethod
+    def _get_email_body(msg):
         if "parts" in msg["payload"]:
             for part in msg["payload"]["parts"]:
                 if part["mimeType"] == "text/plain":
@@ -212,7 +213,8 @@ class GmailReadBlock(Block):
 
         return "This email does not contain a text body."
 
-    def _get_attachments(self, service, message):
+    @staticmethod
+    def _get_attachments(service, message):
         attachments = []
         if "parts" in message["payload"]:
             for part in message["payload"]["parts"]:
@@ -227,7 +229,8 @@ class GmailReadBlock(Block):
         return attachments
 
     # Add a new method to download attachment content
-    def download_attachment(self, service, message_id: str, attachment_id: str):
+    @staticmethod
+    def download_attachment(service, message_id: str, attachment_id: str):
         attachment = (
             service.users()
             .messages()
@@ -303,7 +306,8 @@ class GmailSendBlock(Block):
         )
         return {"id": sent_message["id"], "status": "sent"}
 
-    def _create_message(self, to: str, subject: str, body: str) -> dict:
+    @staticmethod
+    def _create_message(to: str, subject: str, body: str) -> dict:
         import base64
         from email.mime.text import MIMEText
 
@@ -364,7 +368,8 @@ class GmailListLabelsBlock(Block):
         labels = self._list_labels(service)
         yield "result", labels
 
-    def _list_labels(self, service) -> list[dict]:
+    @staticmethod
+    def _list_labels(service) -> list[dict]:
         results = service.users().labels().list(userId="me").execute()
         labels = results.get("labels", [])
         return [{"id": label["id"], "name": label["name"]} for label in labels]
@@ -444,7 +449,8 @@ class GmailAddLabelBlock(Block):
             label_id = label["id"]
         return label_id
 
-    def _get_label_id(self, service, label_name: str) -> str | None:
+    @staticmethod
+    def _get_label_id(service, label_name: str) -> str | None:
         results = service.users().labels().list(userId="me").execute()
         labels = results.get("labels", [])
         for label in labels:
@@ -520,7 +526,8 @@ class GmailRemoveLabelBlock(Block):
         else:
             return {"status": "Label not found", "label_name": label_name}
 
-    def _get_label_id(self, service, label_name: str) -> str | None:
+    @staticmethod
+    def _get_label_id(service, label_name: str) -> str | None:
         results = service.users().labels().list(userId="me").execute()
         labels = results.get("labels", [])
         for label in labels:

@@ -65,7 +65,8 @@ class BaseOAuthHandler(ABC):
             credentials = self.refresh_tokens(credentials)
         return credentials.access_token.get_secret_value()
 
-    def needs_refresh(self, credentials: OAuth2Credentials) -> bool:
+    @staticmethod
+    def needs_refresh(credentials: OAuth2Credentials) -> bool:
         """Indicates whether the given tokens need to be refreshed"""
         return (
             credentials.access_token_expires_at is not None

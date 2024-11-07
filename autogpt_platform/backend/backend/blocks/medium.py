@@ -131,8 +131,8 @@ class PublishToMediumBlock(Block):
             test_credentials=TEST_CREDENTIALS,
         )
 
+    @staticmethod
     def create_post(
-        self,
         api_key: SecretStr,
         author_id,
         title,

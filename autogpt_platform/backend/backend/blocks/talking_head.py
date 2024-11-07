@@ -110,7 +110,8 @@ class CreateTalkingAvatarVideoBlock(Block):
             test_credentials=TEST_CREDENTIALS,
         )
 
-    def create_clip(self, api_key: SecretStr, payload: dict) -> dict:
+    @staticmethod
+    def create_clip(api_key: SecretStr, payload: dict) -> dict:
         url = "https://api.d-id.com/clips"
         headers = {
             "accept": "application/json",
@@ -121,7 +122,8 @@ class CreateTalkingAvatarVideoBlock(Block):
         response.raise_for_status()
         return response.json()
 
-    def get_clip_status(self, api_key: SecretStr, clip_id: str) -> dict:
+    @staticmethod
+    def get_clip_status(api_key: SecretStr, clip_id: str) -> dict:
         url = f"https://api.d-id.com/clips/{clip_id}"
         headers = {
             "accept": "application/json",

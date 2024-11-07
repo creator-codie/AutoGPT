@@ -118,7 +118,8 @@ class GoogleMapsSearchBlock(Block):
         client = googlemaps.Client(key=api_key.get_secret_value())
         return self._search_places(client, query, radius, max_results)
 
-    def _search_places(self, client, query, radius, max_results):
+    @staticmethod
+    def _search_places(client, query, radius, max_results):
         results = []
         next_page_token = None
         while len(results) < max_results:

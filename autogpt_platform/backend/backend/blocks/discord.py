@@ -215,7 +215,8 @@ class SendDiscordMessageBlock(Block):
 
         await client.start(token)
 
-    def chunk_message(self, message: str, limit: int = 2000) -> list:
+    @staticmethod
+    def chunk_message(message: str, limit: int = 2000) -> list:
         """Splits a message into chunks not exceeding the Discord limit."""
         return [message[i : i + limit] for i in range(0, len(message), limit)]
 
