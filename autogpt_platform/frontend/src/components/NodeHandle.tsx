@@ -63,7 +63,7 @@ const NodeHandle: FC<HandleProps> = ({
           className="-ml-[26px]"
         >
           <div className="pointer-events-none flex items-center">
-            <Dot className={`-ml-2 mr-2`} />
+            <Dot className={"-ml-2 mr-2"} />
             {label}
           </div>
         </Handle>

@@ -637,7 +637,7 @@ const FlowEditor: React.FC<{
             onClickRunAgent={() => {
               if (!savedAgent) {
                 toast({
-                  title: `Please save the agent using the button in the left sidebar before running it.`,
+                  title: "Please save the agent using the button in the left sidebar before running it.",
                   duration: 2000,
                 });
                 return;

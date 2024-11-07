@@ -56,7 +56,7 @@ const InputModalComponent: FC<ModalProps> = ({
     <div
       id="modal-content"
       className={`fixed rounded-lg border-[1.5px] bg-white p-5 ${
-        isMaximized ? "inset-[128px] flex flex-col" : `w-[90%] max-w-[800px]`
+        isMaximized ? "inset-[128px] flex flex-col" : "w-[90%] max-w-[800px]"
       }`}
     >
       <h2 className="mb-4 text-center text-lg font-semibold">
