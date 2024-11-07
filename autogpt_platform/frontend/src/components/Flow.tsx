@@ -137,7 +137,7 @@ const FlowEditor: React.FC<{
       localStorage.removeItem(TUTORIAL_STORAGE_KEY);
       router.push(pathname);
     } else if (!localStorage.getItem(TUTORIAL_STORAGE_KEY)) {
-      const emptyNodes = (forceRemove: boolean = false) =>
+      const emptyNodes = (forceRemove = false) =>
         forceRemove ? (setNodes([]), setEdges([]), true) : nodes.length === 0;
       startTutorial(emptyNodes, setPinBlocksPopover, setPinSavePopover);
       localStorage.setItem(TUTORIAL_STORAGE_KEY, "yes");

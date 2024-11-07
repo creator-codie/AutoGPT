@@ -68,7 +68,7 @@ export function useBezierPath(
   );
 
   const getArcLength = useCallback(
-    (t: number, samples: number = 100) => {
+    (t: number, samples = 100) => {
       let length = 0;
       let prevPoint = getPointForT(0);
 
@@ -110,7 +110,7 @@ export function useBezierPath(
   );
 
   const getTForDistance = useCallback(
-    (distance: number, epsilon: number = 0.0001) => {
+    (distance: number, epsilon = 0.0001) => {
       if (distance < 0) {
         distance = length + distance; // If distance is negative, calculate from the end of the curve
       }
