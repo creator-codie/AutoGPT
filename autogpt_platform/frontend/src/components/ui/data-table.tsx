@@ -90,23 +90,22 @@ export function DataTable<TData, TValue>({
           />
         )}
 
-        {globalActions &&
-          globalActions.map((action, index) => {
-            return (
-              <Fragment key={index}>
-                <div className="flex items-center">
-                  {cloneElement(action.component, {
-                    onClick: () => {
-                      const filteredSelectedRows = table
-                        .getFilteredSelectedRowModel()
-                        .rows.map((row) => row.original);
-                      action.action(filteredSelectedRows);
-                    },
-                  })}
-                </div>
-              </Fragment>
-            );
-          })}
+        {globalActions?.map((action, index) => {
+          return (
+            <Fragment key={index}>
+              <div className="flex items-center">
+                {cloneElement(action.component, {
+                  onClick: () => {
+                    const filteredSelectedRows = table
+                      .getFilteredSelectedRowModel()
+                      .rows.map((row) => row.original);
+                    action.action(filteredSelectedRows);
+                  },
+                })}
+              </div>
+            </Fragment>
+          );
+        })}
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
