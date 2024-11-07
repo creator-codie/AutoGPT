@@ -90,8 +90,7 @@ export function DataTable<TData, TValue>({
           />
         )}
 
-        {globalActions &&
-          globalActions.map((action, index) => {
+        {globalActions?.map((action, index) => {
             return (
               <Fragment key={index}>
                 <div className="flex items-center">

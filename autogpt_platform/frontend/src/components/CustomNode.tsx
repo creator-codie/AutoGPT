@@ -380,8 +380,7 @@ export function CustomNode({
 
   const isHandleConnected = (key: string) => {
     return (
-      data.connections &&
-      data.connections.some((conn: any) => {
+      data.connections?.some((conn: any) => {
         if (typeof conn === "string") {
           const [source, target] = conn.split(" -> ");
           return (
@@ -563,8 +562,7 @@ export function CustomNode({
 
   const inputValues = data.hardcodedValues;
   const blockCost =
-    data.blockCosts &&
-    data.blockCosts.find((cost) =>
+    data.blockCosts?.find((cost) =>
       Object.entries(cost.cost_filter).every(
         // Undefined, null, or empty values are considered equal
         ([key, value]) =>

@@ -60,7 +60,7 @@ export const FlowRunsTimeline = ({
       />
       <Tooltip
         content={({ payload, label }) => {
-          if (payload && payload.length) {
+          if (payload?.length) {
             const data: FlowRun & { time: number; _duration: number } =
               payload[0].payload;
             const flow = flows.find((f) => f.id === data.graphID);

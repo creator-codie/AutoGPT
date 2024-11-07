@@ -511,8 +511,7 @@ const NodeArrayInput: FC<{
       {entries.map((entry: any, index: number) => {
         const entryKey = `${selfKey}_$_${index}`;
         const isConnected =
-          connections &&
-          connections.some(
+          connections?.some(
             (c) => c.targetHandle === entryKey && c.target === nodeId,
           );
         return (
