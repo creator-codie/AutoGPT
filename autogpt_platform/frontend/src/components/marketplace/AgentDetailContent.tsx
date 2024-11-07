@@ -19,7 +19,7 @@ function AgentDetailContent({ agent }: { agent: AgentDetailResponse }) {
     const api = new MarketplaceAPI();
     try {
       const file = await api.downloadAgentFile(id);
-      console.debug(`Agent file downloaded:`, file);
+      console.debug("Agent file downloaded:", file);
 
       // Create a Blob from the file content
       const blob = new Blob([file], { type: "application/json" });
@@ -40,7 +40,7 @@ function AgentDetailContent({ agent }: { agent: AgentDetailResponse }) {
       // Revoke the temporary URL
       window.URL.revokeObjectURL(url);
     } catch (error) {
-      console.error(`Error downloading agent:`, error);
+      console.error("Error downloading agent:", error);
       throw error;
     }
   };
@@ -60,7 +60,7 @@ function AgentDetailContent({ agent }: { agent: AgentDetailResponse }) {
     try {
       console.debug(`Installing agent with id: ${id}`);
       let agent = await api.downloadAgent(id);
-      console.debug(`Agent downloaded:`, agent);
+      console.debug("Agent downloaded:", agent);
       const data: GraphCreatable = {
         id: agent.id,
         version: agent.version,
@@ -80,12 +80,12 @@ function AgentDetailContent({ agent }: { agent: AgentDetailResponse }) {
           installation_location: InstallationLocation.CLOUD,
         },
       });
-      console.debug(`Agent installed successfully`, result);
+      console.debug("Agent installed successfully", result);
       serverAPI.createGraph(result.id, agent.version).then((newGraph) => {
         window.location.href = `/build?flowID=${newGraph.id}`;
       });
     } catch (error) {
-      console.error(`Error installing agent:`, error);
+      console.error("Error installing agent:", error);
       toast({
         title: "Error saving template",
         variant: "destructive",

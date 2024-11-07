@@ -51,7 +51,7 @@ export default class BaseAutoGPTServerAPI {
   }
 
   getUserCredit(): Promise<{ credits: number }> {
-    return this._get(`/credits`);
+    return this._get("/credits");
   }
 
   getBlocks(): Promise<Block[]> {
@@ -59,11 +59,11 @@ export default class BaseAutoGPTServerAPI {
   }
 
   listGraphs(): Promise<GraphMeta[]> {
-    return this._get(`/graphs`);
+    return this._get("/graphs");
   }
 
   async listGraphsWithRuns(): Promise<GraphMetaWithRuns[]> {
-    let graphs = await this._get(`/graphs?with_runs=true`);
+    let graphs = await this._get("/graphs?with_runs=true");
     return graphs.map(parseGraphMetaWithRuns);
   }
 

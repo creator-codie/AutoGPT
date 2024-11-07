@@ -210,7 +210,7 @@ export const startTutorial = (
     id: "focus-new-block",
     title: "New Block",
     text: "This is the Calculator Block! Let's go over how it works.",
-    attachTo: { element: `[data-id="custom-node-1"]`, on: "top" },
+    attachTo: { element: '[data-id="custom-node-1"]', on: "top" },
     beforeShowPromise: () => waitForElement('[data-id="custom-node-1"]'),
     buttons: [
       {
@@ -415,7 +415,7 @@ export const startTutorial = (
     id: "focus-second-block",
     title: "Focus on the New Block",
     text: "This is your copied Calculator Block. Now, let’s move it to the side of the first block.",
-    attachTo: { element: `[data-id^="custom-node-"][data-id$="2"]`, on: "top" },
+    attachTo: { element: '[data-id^="custom-node-"][data-id$="2"]', on: "top" },
     beforeShowPromise: () =>
       waitForElement('[data-id^="custom-node-"][data-id$="2"]'),
     buttons: [

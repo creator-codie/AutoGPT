@@ -17,7 +17,7 @@ export const FlowRunInfo: React.FC<
 > = ({ flow, flowRun, ...props }) => {
   if (flowRun.graphID != flow.id) {
     throw new Error(
-      `FlowRunInfo can't be used with non-matching flowRun.flowID and flow.id`,
+      "FlowRunInfo can't be used with non-matching flowRun.flowID and flow.id",
     );
   }
 

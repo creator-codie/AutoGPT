@@ -12,10 +12,10 @@ async function getAgentDetails(id: string): Promise<AgentDetailResponse> {
   try {
     console.log(`Fetching agent details for id: ${id}`);
     const agent = await api.getAgentDetails(id);
-    console.log(`Agent details fetched:`, agent);
+    console.log("Agent details fetched:", agent);
     return agent;
   } catch (error) {
-    console.error(`Error fetching agent details:`, error);
+    console.error("Error fetching agent details:", error);
     throw error;
   }
 }

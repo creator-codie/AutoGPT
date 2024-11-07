@@ -76,7 +76,7 @@ export default function LoginPage() {
       options: {
         redirectTo:
           process.env.AUTH_CALLBACK_URL ??
-          `http://localhost:3000/auth/callback`,
+          "http://localhost:3000/auth/callback",
       },
     });
 
