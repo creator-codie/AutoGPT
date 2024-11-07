@@ -48,7 +48,6 @@ Credentials = Annotated[
     Field(discriminator="type"),
 ]
 
-
 CredentialsType = Literal["api_key", "oauth2"]
 
 

@@ -17,5 +17,5 @@ services:
       - app-network-test
 
 networks:
-     app-network-test:
-       driver: bridge
+  app-network-test:
+    driver: bridge

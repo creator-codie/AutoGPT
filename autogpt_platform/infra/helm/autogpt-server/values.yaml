@@ -39,7 +39,6 @@ ingress:
           pathType: ImplementationSpecific
   tls: []
 
-
 resources:
   requests:
     cpu: 100m
@@ -47,7 +46,6 @@ resources:
   limits:
     cpu: 1
     memory: 1Gi
-
 
 autoscaling:
   enabled: false
@@ -81,4 +79,3 @@ cors:
     - "Authorization"
   maxAge: 3600
   allowCredentials: true
-

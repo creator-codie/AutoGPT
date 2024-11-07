@@ -3,10 +3,10 @@ import logging
 from contextlib import asynccontextmanager
 
 import uvicorn
-from autogpt_libs.auth import parse_jwt_token
 from fastapi import Depends, FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 
+from autogpt_libs.auth import parse_jwt_token
 from backend.data import redis
 from backend.data.queue import AsyncRedisExecutionEventBus
 from backend.data.user import DEFAULT_USER_ID

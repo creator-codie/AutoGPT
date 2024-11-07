@@ -1,6 +1,6 @@
-from autogpt_libs.auth.middleware import auth_middleware
 from fastapi import Depends, HTTPException
 
+from autogpt_libs.auth.middleware import auth_middleware
 from backend.data.user import DEFAULT_USER_ID
 from backend.util.settings import Settings
 

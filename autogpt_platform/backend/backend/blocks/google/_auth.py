@@ -1,8 +1,8 @@
 from typing import Literal
 
-from autogpt_libs.supabase_integration_credentials_store.types import OAuth2Credentials
 from pydantic import SecretStr
 
+from autogpt_libs.supabase_integration_credentials_store.types import OAuth2Credentials
 from backend.data.model import CredentialsField, CredentialsMetaInput
 from backend.util.settings import Secrets
 

@@ -10,6 +10,7 @@ if TYPE_CHECKING:
 
 from autogpt_libs.utils.cache import thread_cached
 from autogpt_libs.utils.synchronize import RedisKeyedMutex
+from backend.util.settings import Settings
 
 from .types import (
     APIKeyCredentials,
@@ -18,8 +19,6 @@ from .types import (
     OAuthState,
     UserIntegrations,
 )
-
-from backend.util.settings import Settings
 
 settings = Settings()
 

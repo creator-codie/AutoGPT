@@ -2,9 +2,9 @@ from enum import Enum
 from typing import Any, Dict, Literal, Optional
 
 import requests
-from autogpt_libs.supabase_integration_credentials_store.types import APIKeyCredentials
 from pydantic import SecretStr
 
+from autogpt_libs.supabase_integration_credentials_store.types import APIKeyCredentials
 from backend.data.block import Block, BlockCategory, BlockOutput, BlockSchema
 from backend.data.model import CredentialsField, CredentialsMetaInput, SchemaField
 
@@ -78,7 +78,6 @@ class UpscaleOption(str, Enum):
 
 class IdeogramModelBlock(Block):
     class Input(BlockSchema):
-
         credentials: CredentialsMetaInput[Literal["ideogram"], Literal["api_key"]] = (
             CredentialsField(
                 provider="ideogram",

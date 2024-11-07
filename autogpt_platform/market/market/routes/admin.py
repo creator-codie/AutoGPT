@@ -1,12 +1,12 @@
 import logging
 import typing
 
-import autogpt_libs.auth
 import fastapi
 import prisma
 import prisma.enums
 import prisma.models
 
+import autogpt_libs.auth
 import market.db
 import market.model
 

@@ -1,8 +1,8 @@
-import autogpt_libs.auth
 import fastapi
 import fastapi.responses
 import prisma
 
+import autogpt_libs.auth
 import market.db
 import market.model
 import market.utils.analytics

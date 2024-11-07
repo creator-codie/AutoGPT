@@ -1,15 +1,15 @@
 import logging
 from typing import Optional, cast
 
+from fastapi import HTTPException
+from prisma import Json
+from prisma.models import User
+
 from autogpt_libs.supabase_integration_credentials_store.types import (
     UserIntegrations,
     UserMetadata,
     UserMetadataRaw,
 )
-from fastapi import HTTPException
-from prisma import Json
-from prisma.models import User
-
 from backend.data.db import prisma
 from backend.util.encryption import JSONCryptor
 
