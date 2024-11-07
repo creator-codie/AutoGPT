@@ -510,10 +510,9 @@ const NodeArrayInput: FC<{
       {displayName && <strong>{displayName}</strong>}
       {entries.map((entry: any, index: number) => {
         const entryKey = `${selfKey}_$_${index}`;
-        const isConnected =
-          connections?.some(
-            (c) => c.targetHandle === entryKey && c.target === nodeId,
-          );
+        const isConnected = connections?.some(
+          (c) => c.targetHandle === entryKey && c.target === nodeId,
+        );
         return (
           <div key={entryKey} className="self-start">
             <div className="mb-2 flex space-x-2">
