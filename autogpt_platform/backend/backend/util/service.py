@@ -118,7 +118,8 @@ class AppService(AppProcess, ABC):
     def get_host(cls) -> str:
         return os.environ.get(f"{cls.service_name.upper()}_HOST", Config().pyro_host)
 
-    def run_service(self) -> None:
+    @staticmethod
+    def run_service() -> None:
         while True:
             time.sleep(10)
 

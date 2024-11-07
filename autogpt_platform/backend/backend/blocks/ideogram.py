@@ -203,7 +203,7 @@ class IdeogramModelBlock(Block):
         yield "result", result
 
     def run_model(
-        self,
+    @staticmethod
         api_key: SecretStr,
         model_name: str,
         prompt: str,
@@ -246,7 +246,8 @@ class IdeogramModelBlock(Block):
         except requests.exceptions.RequestException as e:
             raise Exception(f"Failed to fetch image: {str(e)}")
 
-    def upscale_image(self, api_key: SecretStr, image_url: str):
+    @staticmethod
+    def upscale_image(api_key: SecretStr, image_url: str):
         url = "https://api.ideogram.ai/upscale"
         headers = {
             "Api-Key": api_key.get_secret_value(),

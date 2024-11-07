@@ -124,7 +124,8 @@ class GitHubOAuthHandler(BaseOAuthHandler):
             new_credentials.id = current_credentials.id
         return new_credentials
 
-    def _request_username(self, access_token: str) -> str | None:
+    @staticmethod
+    def _request_username(access_token: str) -> str | None:
         url = "https://api.github.com/user"
         headers = {
             "Accept": "application/vnd.github+json",

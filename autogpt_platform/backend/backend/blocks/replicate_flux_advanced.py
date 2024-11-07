@@ -179,8 +179,8 @@ class ReplicateFluxAdvancedModelBlock(Block):
         )
         yield "result", result
 
+    @staticmethod
     def run_model(
-        self,
         api_key: SecretStr,
         model_name,
         prompt,

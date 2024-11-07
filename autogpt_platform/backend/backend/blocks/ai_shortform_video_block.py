@@ -213,7 +213,8 @@ class AIShortformVideoCreatorBlock(Block):
             test_credentials=TEST_CREDENTIALS,
         )
 
-    def create_webhook(self):
+    @staticmethod
+    def create_webhook():
         url = "https://webhook.site/token"
         headers = {"Accept": "application/json", "Content-Type": "application/json"}
         response = requests.post(url, headers=headers)
@@ -221,7 +222,8 @@ class AIShortformVideoCreatorBlock(Block):
         webhook_data = response.json()
         return webhook_data["uuid"], f"https://webhook.site/{webhook_data['uuid']}"
 
-    def create_video(self, api_key: SecretStr, payload: dict) -> dict:
+    @staticmethod
+    def create_video(api_key: SecretStr, payload: dict) -> dict:
         url = "https://www.revid.ai/api/public/v2/render"
         headers = {"key": api_key.get_secret_value()}
         response = requests.post(url, json=payload, headers=headers)
@@ -231,7 +233,8 @@ class AIShortformVideoCreatorBlock(Block):
         response.raise_for_status()
         return response.json()
 
-    def check_video_status(self, api_key: SecretStr, pid: str) -> dict:
+    @staticmethod
+    def check_video_status(api_key: SecretStr, pid: str) -> dict:
         url = f"https://www.revid.ai/api/public/v2/status?pid={pid}"
         headers = {"key": api_key.get_secret_value()}
         response = requests.get(url, headers=headers)

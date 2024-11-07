@@ -660,7 +660,8 @@ class AgentServer(AppService):
         execution_scheduler = self.execution_scheduler_client
         return execution_scheduler.get_execution_schedules(graph_id, user_id)
 
-    async def health(self):
+    @staticmethod
+    async def health():
         return {"status": "healthy"}
 
     @classmethod
